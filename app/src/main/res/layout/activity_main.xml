@@ -42,7 +42,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/gateImage"
         android:layout_width="250dp"
         android:layout_height="238dp"
         android:layout_marginBottom="15dp"
@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="-20dp"
         android:text="Guess, Illustrate and Learn "
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/gateImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -99,7 +99,7 @@
         android:layout_marginBottom="15dp"
         android:text="nor"
         android:background="@drawable/color_brown"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/gateImage"
         app:layout_constraintEnd_toStartOf="@+id/notbtn"
         app:layout_constraintStart_toEndOf="@+id/nandbtn" />
 
@@ -153,6 +153,7 @@
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/right" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
