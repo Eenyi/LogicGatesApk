@@ -62,77 +62,66 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="-20dp"
-        android:text="Guess, Illustrate and Learn "
-        app:layout_constraintBottom_toTopOf="@+id/gateImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
-        android:id="@+id/notbtn"
+        android:id="@+id/btn6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
         android:text="not"
         android:background="@drawable/color_brown"
-        app:layout_constraintBottom_toBottomOf="@+id/norbtn"
+        app:layout_constraintBottom_toBottomOf="@+id/btn5"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/xorbtn"
+        android:id="@+id/btn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:text="xor"
         android:background="@drawable/color_brown"
-        app:layout_constraintBottom_toTopOf="@+id/notbtn"
-        app:layout_constraintStart_toStartOf="@+id/notbtn" />
+        app:layout_constraintBottom_toTopOf="@+id/btn6"
+        app:layout_constraintStart_toStartOf="@+id/btn6" />
 
     <Button
-        android:id="@+id/norbtn"
+        android:id="@+id/btn5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:text="nor"
         android:background="@drawable/color_brown"
+        android:text="nor"
         app:layout_constraintBottom_toTopOf="@+id/gateImage"
-        app:layout_constraintEnd_toStartOf="@+id/notbtn"
-        app:layout_constraintStart_toEndOf="@+id/nandbtn" />
+        app:layout_constraintEnd_toStartOf="@+id/btn6"
+        app:layout_constraintStart_toEndOf="@+id/btn4" />
 
     <Button
-        android:id="@+id/nandbtn"
+        android:id="@+id/btn4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:text="nand"
         android:background="@drawable/color_brown"
-        app:layout_constraintBottom_toBottomOf="@+id/norbtn"
+        app:layout_constraintBottom_toBottomOf="@+id/btn5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/orbtn"
+        android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:text="or"
         android:background="@drawable/color_brown"
-        app:layout_constraintBottom_toTopOf="@+id/norbtn"
-        app:layout_constraintEnd_toStartOf="@+id/xorbtn"
-        app:layout_constraintStart_toEndOf="@+id/andbtn" />
+        app:layout_constraintBottom_toTopOf="@+id/btn5"
+        app:layout_constraintEnd_toStartOf="@+id/btn3"
+        app:layout_constraintStart_toEndOf="@+id/btn1" />
 
     <Button
-        android:id="@+id/andbtn"
+        android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:text="and"
         android:background="@drawable/color_brown"
-        app:layout_constraintBottom_toTopOf="@+id/nandbtn"
-        app:layout_constraintEnd_toEndOf="@+id/nandbtn" />
+        app:layout_constraintBottom_toTopOf="@+id/btn4"
+        app:layout_constraintEnd_toEndOf="@+id/btn4" />
 
     <TextView
         android:id="@+id/name"
@@ -141,7 +130,7 @@
         android:layout_marginBottom="20dp"
         android:text="Yes, I'm AND"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/orbtn"
+        app:layout_constraintBottom_toTopOf="@+id/btn2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -153,7 +142,27 @@
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/r"/>
+        app:srcCompat="@drawable/r" />
+
+    <TextView
+        android:id="@+id/success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Success: 0"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/failure"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/failure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="143dp"
+        android:text="Failure: 0"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/success"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

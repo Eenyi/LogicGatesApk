@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -19,9 +21,11 @@ public class MainActivity extends AppCompatActivity {
     /*Declaring Varialbes*/
     Button generate, input1, input2, output;
     ImageView gateImage;
-    int [] arrDrawable = {R.drawable.and, R.drawable.or, R.drawable.nand, R.drawable.nor, R.drawable.not, R.drawable.xor};
+    int [] arrDrawable = {R.drawable.and, R.drawable.or, R.drawable.nand, R.drawable.nor, R.drawable.not, R.drawable.xor},
+    options = {R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6};
+    String [] optionText = {"AND", "OR", "NAND", "NOR", "NOT", "XOR"};
     Random rand = new Random();
-    int selectedGateIndex;
+    int selectedGateIndex, optionRandomIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,19 @@ public class MainActivity extends AppCompatActivity {
         int notBottomMargin = lp.bottomMargin+100;
             @Override
             public void onClick(View view) {
+                /*Code to Set Options on Buttons*/
+                List<String> randOption = new ArrayList<String>();
+                while(randOption.size() != 6) {
+                    optionRandomIndex = rand.nextInt(6);
+                    if (!randOption.contains(optionText[optionRandomIndex])) {
+                        randOption.add(optionText[optionRandomIndex]);
+                    }
+                }
+                for (int i = 0; i < options.length; i++) {
+                    Button tempBtn = findViewById(options[i]);
+                    tempBtn.setText(randOption.indexOf(i));
+                }
+                /*Generate Button Functionality to change Gates Images*/
                 selectedGateIndex = rand.nextInt(6);
                 gateImage.setImageResource(arrDrawable[selectedGateIndex]);
                 /*Special NOT Case handle*/
