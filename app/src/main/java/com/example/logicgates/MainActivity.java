@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     Button generate, input1, input2, output;
     ImageView gateImage;
     int [] arrDrawable = {R.drawable.and, R.drawable.or, R.drawable.nand, R.drawable.nor, R.drawable.not, R.drawable.xor},
-    options = {R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6};
+    options = {R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6},
+    colors = {R.drawable.color_red, R.drawable.color_blue, R.drawable.color_green, R.drawable.color_yellow, R.drawable.color_purple, R.drawable.color_magenta, R.drawable.color_brown, R.drawable.color_gold, R.drawable.color_orange};
     String [] optionText = {"AND", "OR", "NAND", "NOR", "NOT", "XOR"};
     Random rand = new Random();
     int selectedGateIndex, optionRandomIndex;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         int notBottomMargin = lp.bottomMargin+100;
             @Override
             public void onClick(View view) {
+                generate.setBackgroundResource(colors[rand.nextInt(9)]);
                 /*Code to Set Options on Buttons*/
                 List<String> randOption = new ArrayList<String>();
                 while(randOption.size() != 6) {
@@ -51,9 +53,11 @@ public class MainActivity extends AppCompatActivity {
                         randOption.add(optionText[optionRandomIndex]);
                     }
                 }
+                Button tempBtn;
                 for (int i = 0; i < options.length; i++) {
-                    Button tempBtn = findViewById(options[i]);
-                    tempBtn.setText(randOption.indexOf(i));
+                    tempBtn = findViewById(options[i]);
+                    tempBtn.setText(randOption.get(i));
+                    tempBtn.setBackgroundResource(colors[rand.nextInt(9)]);
                 }
                 /*Generate Button Functionality to change Gates Images*/
                 selectedGateIndex = rand.nextInt(6);

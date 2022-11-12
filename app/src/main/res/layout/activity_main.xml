@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:text="xor"
-        android:background="@drawable/color_brown"
+        android:background="@drawable/color_magenta"
         app:layout_constraintBottom_toTopOf="@+id/btn6"
         app:layout_constraintStart_toStartOf="@+id/btn6" />
 
@@ -86,7 +86,7 @@
         android:id="@+id/btn5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/color_brown"
+        android:background="@drawable/color_gold"
         android:text="nor"
         app:layout_constraintBottom_toTopOf="@+id/gateImage"
         app:layout_constraintEnd_toStartOf="@+id/btn6"
@@ -98,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:text="nand"
-        android:background="@drawable/color_brown"
+        android:background="@drawable/color_green"
         app:layout_constraintBottom_toBottomOf="@+id/btn5"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -108,7 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:text="or"
-        android:background="@drawable/color_brown"
+        android:background="@drawable/color_blue"
         app:layout_constraintBottom_toTopOf="@+id/btn5"
         app:layout_constraintEnd_toStartOf="@+id/btn3"
         app:layout_constraintStart_toEndOf="@+id/btn1" />
@@ -119,7 +119,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:text="and"
-        android:background="@drawable/color_brown"
+        android:background="@drawable/color_red"
         app:layout_constraintBottom_toTopOf="@+id/btn4"
         app:layout_constraintEnd_toEndOf="@+id/btn4" />
 
