@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -79,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         int notBottomMargin = lp.bottomMargin+100;
             @Override
             public void onClick(View view) {
+                /*Initial Setup*/
                 generate.setBackgroundResource(colors[rand.nextInt(9)]);
                 resultAvatar.setImageResource(R.drawable.guess);
                 name.setText(" ");
@@ -89,44 +89,11 @@ public class MainActivity extends AppCompatActivity {
                 input2.setText("OFF");
                 input2Flag = false;
                 /*Code to Set Options on Buttons*/
-                List<String> randOption = new ArrayList<String>();
-                while(randOption.size() != 6) {
-                    optionRandomIndex = rand.nextInt(6);
-                    if (!randOption.contains(optionText[optionRandomIndex])) {
-                        randOption.add(optionText[optionRandomIndex]);
-                    }
-                }
-                Button tempBtn;
-                for (int i = 0; i < options.length; i++) {
-                    tempBtn = findViewById(options[i]);
-                    tempBtn.setText(randOption.get(i));
-                    tempBtn.setBackgroundResource(colors[rand.nextInt(9)]);
-                }
+                changeOptionsRandomly();
                 /*Generate Button Functionality to change Gates Images*/
-                selectedGateIndex = rand.nextInt(6);
-                gateImage.setImageResource(arrDrawable[selectedGateIndex]);
-                currentGateImage = optionText[selectedGateIndex];
-                if (arrDrawable[selectedGateIndex] == R.drawable.nand ||
-                        arrDrawable[selectedGateIndex] == R.drawable.nor ||
-                        arrDrawable[selectedGateIndex] == R.drawable.not) {
-                    output.setText("ON");
-                    output.setBackgroundResource(R.drawable.color_yellow);
-                }
-                else {
-                    output.setText("OFF");
-                    output.setBackgroundResource(R.drawable.color_white);
-                }
+                changeGateRandomly();
                 /*Special NOT Case handle*/
-                if (selectedGateIndex == 4){
-                    input1.setVisibility(View.INVISIBLE);
-                    lp.bottomMargin=notBottomMargin;
-                    input2.setLayoutParams(lp);
-                }
-                else {
-                    input1.setVisibility(View.VISIBLE);
-                    lp.bottomMargin=notBottomMargin-100;
-                    input2.setLayoutParams(lp);
-                }
+                buttonHandleForNotGate(lp, notBottomMargin);
             }
         });
 
@@ -173,7 +140,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+        output.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (output.getText().equals("ON")) {
+                    resultAvatar.setImageResource(R.drawable.on);
+                }
+                else {
+                    resultAvatar.setImageResource(R.drawable.off);
+                }
+            }
+        });
     }
     public void optionSelection(int index) {
         optionButtons[index] = findViewById(options[index]);
@@ -224,6 +201,48 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
+        }
+    }
+    public void buttonHandleForNotGate(ConstraintLayout.LayoutParams lp, int notBottomMargin) {
+        if (selectedGateIndex == 4){
+            input1.setVisibility(View.INVISIBLE);
+            lp.bottomMargin=notBottomMargin;
+            input2.setLayoutParams(lp);
+        }
+        else {
+            input1.setVisibility(View.VISIBLE);
+            lp.bottomMargin=notBottomMargin-100;
+            input2.setLayoutParams(lp);
+        }
+    }
+    public void changeGateRandomly() {
+        selectedGateIndex = rand.nextInt(6);
+        gateImage.setImageResource(arrDrawable[selectedGateIndex]);
+        currentGateImage = optionText[selectedGateIndex];
+        if (arrDrawable[selectedGateIndex] == R.drawable.nand ||
+                arrDrawable[selectedGateIndex] == R.drawable.nor ||
+                arrDrawable[selectedGateIndex] == R.drawable.not) {
+            output.setText("ON");
+            output.setBackgroundResource(R.drawable.color_yellow);
+        }
+        else {
+            output.setText("OFF");
+            output.setBackgroundResource(R.drawable.color_white);
+        }
+    }
+    public void changeOptionsRandomly() {
+        List<String> randOption = new ArrayList<String>();
+        while(randOption.size() != 6) {
+            optionRandomIndex = rand.nextInt(6);
+            if (!randOption.contains(optionText[optionRandomIndex])) {
+                randOption.add(optionText[optionRandomIndex]);
+            }
+        }
+        Button tempBtn;
+        for (int i = 0; i < options.length; i++) {
+            tempBtn = findViewById(options[i]);
+            tempBtn.setText(randOption.get(i));
+            tempBtn.setBackgroundResource(colors[rand.nextInt(9)]);
         }
     }
 }
