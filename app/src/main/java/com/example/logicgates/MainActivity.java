@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
 public class MainActivity extends AppCompatActivity {
     /*Declaring Varialbes*/
     Button generate, input1, input2, output;
@@ -27,7 +26,31 @@ public class MainActivity extends AppCompatActivity {
     String [] optionText = {"AND", "OR", "NAND", "NOR", "NOT", "XOR"};
     String currentGateImage = optionText[0];
     Random rand = new Random();
-    int selectedGateIndex, optionRandomIndex, successScore = 0, failureScore = 0;
+    int selectedGateIndex = 0, optionRandomIndex, successScore = 0, failureScore = 0;
+    Boolean input1Flag = false, input2Flag = false, outputFlag = false;
+    GateTable [] andGateTable = {new GateTable("OFF", "OFF", "OFF", R.drawable.and),
+            new GateTable("ON", "ON", "ON", R.drawable.and),
+            new GateTable("ON", "OFF", "OFF", R.drawable.and),
+            new GateTable("OFF", "ON", "OFF", R.drawable.and)};
+    GateTable [] nandGateTable = {new GateTable("OFF", "OFF", "ON", R.drawable.nand),
+            new GateTable("ON", "ON", "OFF", R.drawable.nand),
+            new GateTable("ON", "OFF", "ON", R.drawable.nand),
+            new GateTable("OFF", "ON", "ON", R.drawable.nand)};
+    GateTable [] orGateTable = {new GateTable("OFF", "OFF", "OFF", R.drawable.or),
+            new GateTable("ON", "ON", "ON", R.drawable.or),
+            new GateTable("ON", "OFF", "ON", R.drawable.or),
+            new GateTable("OFF", "ON", "ON", R.drawable.or)};
+    GateTable [] norGateTable = {new GateTable("OFF", "OFF", "ON", R.drawable.nor),
+            new GateTable("ON", "ON", "OFF", R.drawable.nor),
+            new GateTable("ON", "OFF", "OFF", R.drawable.nor),
+            new GateTable("OFF", "ON", "OFF", R.drawable.nor)};
+    GateTable [] xorGateTable = {new GateTable("OFF", "OFF", "OFF", R.drawable.xor),
+            new GateTable("ON", "ON", "OFF", R.drawable.xor),
+            new GateTable("ON", "OFF", "ON", R.drawable.xor),
+            new GateTable("OFF", "ON", "ON", R.drawable.xor)};
+    GateTable [] notGateTable = {new GateTable("-", "ON", "OFF", R.drawable.not),
+            new GateTable("-", "OFF", "ON", R.drawable.not)};
+    List<GateTable[]> gateTablesList = new ArrayList<GateTable[]>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
         failure = findViewById(R.id.failure);
         input1 = findViewById(R.id.input1);
         input2 = findViewById(R.id.input2);
+        output = findViewById(R.id.output);
+        gateTablesList.add(andGateTable);
+        gateTablesList.add(nandGateTable);
+        gateTablesList.add(orGateTable);
+        gateTablesList.add(norGateTable);
+        gateTablesList.add(xorGateTable);
+        gateTablesList.add(notGateTable);
         /*button listener*/
         generate.setOnClickListener(new View.OnClickListener() {
         /*Get Layouts*/
@@ -52,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
                 generate.setBackgroundResource(colors[rand.nextInt(9)]);
                 resultAvatar.setImageResource(R.drawable.guess);
                 name.setText(" ");
+                input1.setBackgroundResource(colors[1]);
+                input1.setText("OFF");
+                input1Flag = false;
+                input2.setBackgroundResource(colors[1]);
+                input2.setText("OFF");
+                input2Flag = false;
                 /*Code to Set Options on Buttons*/
                 List<String> randOption = new ArrayList<String>();
                 while(randOption.size() != 6) {
@@ -70,6 +106,16 @@ public class MainActivity extends AppCompatActivity {
                 selectedGateIndex = rand.nextInt(6);
                 gateImage.setImageResource(arrDrawable[selectedGateIndex]);
                 currentGateImage = optionText[selectedGateIndex];
+                if (arrDrawable[selectedGateIndex] == R.drawable.nand ||
+                        arrDrawable[selectedGateIndex] == R.drawable.nor ||
+                        arrDrawable[selectedGateIndex] == R.drawable.not) {
+                    output.setText("ON");
+                    output.setBackgroundResource(R.drawable.color_yellow);
+                }
+                else {
+                    output.setText("OFF");
+                    output.setBackgroundResource(R.drawable.color_white);
+                }
                 /*Special NOT Case handle*/
                 if (selectedGateIndex == 4){
                     input1.setVisibility(View.INVISIBLE);
@@ -91,6 +137,43 @@ public class MainActivity extends AppCompatActivity {
         optionSelection(3);
         optionSelection(4);
         optionSelection(5);
+
+        /*Illustration Handle*/
+        input1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!input1Flag) {
+                    input1.setBackgroundResource(colors[8]);
+                    input1.setText("ON");
+                    input1Flag = true;
+                    illustrationHandle();
+                }
+                else {
+                    input1.setBackgroundResource(colors[1]);
+                    input1.setText("OFF");
+                    input1Flag = false;
+                    illustrationHandle();
+                }
+            }
+        });
+        input2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!input2Flag) {
+                    input2.setBackgroundResource(colors[8]);
+                    input2.setText("ON");
+                    input2Flag = true;
+                    illustrationHandle();
+                }
+                else {
+                    input2.setBackgroundResource(colors[1]);
+                    input2.setText("OFF");
+                    input2Flag = false;
+                    illustrationHandle();
+                }
+            }
+        });
+
     }
     public void optionSelection(int index) {
         optionButtons[index] = findViewById(options[index]);
@@ -110,5 +193,37 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    public void outputColor(String out) {
+        if ("ON".equals(out)) {
+            output.setBackgroundResource(R.drawable.color_yellow);
+        }
+        else {
+            output.setBackgroundResource(R.drawable.color_white);
+        }
+    }
+    public void illustrationHandle() {
+        for (GateTable[] possibility: gateTablesList) {
+            if (arrDrawable[selectedGateIndex] == possibility[0].drawableID) {
+                if (arrDrawable[selectedGateIndex] != R.drawable.not) {
+                    for (GateTable item:
+                            possibility) {
+                        if(input1.getText().equals(item.in1) && input2.getText().equals(item.in2)) {
+                            output.setText(item.out);
+                            outputColor(item.out);
+                        }
+                    }
+                }
+                else {
+                    for (GateTable item:
+                            possibility) {
+                        if(input2.getText().equals(item.in2)) {
+                            output.setText(item.out);
+                            outputColor(item.out);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
