@@ -2,12 +2,37 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lgenternameinput"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:contentDescription="@string/app_name"
     tools:context=".Home">
 
+    <TextView
+        android:id="@+id/lg_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/app_name"
+        android:textColor="@color/tealgreen"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/cover"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lgenterbtn"
+        android:layout_width="253dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/start"
+        app:layout_constraintEnd_toEndOf="@+id/lgenternametext"
+        app:layout_constraintStart_toStartOf="@+id/lgenternametext"
+        app:layout_constraintTop_toBottomOf="@+id/lgenternametext" />
+
     <ImageView
-        android:id="@+id/cover2"
+        android:id="@+id/cover"
         android:layout_width="393dp"
         android:layout_height="300dp"
         android:layout_marginStart="20dp"
@@ -17,31 +42,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/title" />
 
-    <TextView
-        android:id="@+id/lg_title2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/app_name"
-        android:textColor="@color/tealgreen"
-        android:textSize="34sp"
-        app:layout_constraintStart_toEndOf="@+id/cover2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/lgentername2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/lgentername"
-        app:layout_constraintEnd_toEndOf="@+id/lg_title2"
-        app:layout_constraintStart_toStartOf="@+id/lg_title2"
-        app:layout_constraintTop_toBottomOf="@+id/lg_title2" />
-
     <EditText
-        android:id="@+id/lgenternametext2"
+        android:id="@+id/lgenternametext"
         android:layout_width="253dp"
         android:layout_height="45dp"
         android:layout_marginTop="10dp"
@@ -49,52 +51,52 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:text="@string/empty"
+        android:textAlignment="center"
         android:textColorLink="#009688"
-        app:layout_constraintEnd_toEndOf="@+id/lgentername2"
-        app:layout_constraintStart_toStartOf="@+id/lgentername2"
-        app:layout_constraintTop_toBottomOf="@+id/lgentername2"
+        app:layout_constraintEnd_toEndOf="@+id/lgentername"
+        app:layout_constraintStart_toStartOf="@+id/lgentername"
+        app:layout_constraintTop_toBottomOf="@+id/lgentername"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-    <Button
-        android:id="@+id/lgenterbtn2"
-        android:layout_width="253dp"
+    <TextView
+        android:id="@+id/lgentername"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/start"
-        app:layout_constraintEnd_toEndOf="@+id/lgenternametext2"
-        app:layout_constraintStart_toStartOf="@+id/lgenternametext2"
-        app:layout_constraintTop_toBottomOf="@+id/lgenternametext2" />
+        android:text="@string/lgentername"
+        app:layout_constraintEnd_toEndOf="@+id/lg_title"
+        app:layout_constraintStart_toStartOf="@+id/lg_title"
+        app:layout_constraintTop_toBottomOf="@+id/lg_title" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="253dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/scoreboard"
-        app:layout_constraintEnd_toEndOf="@+id/lgenterbtn2"
-        app:layout_constraintStart_toStartOf="@+id/lgenterbtn2"
-        app:layout_constraintTop_toBottomOf="@+id/lgenterbtn2" />
-
-    <Button
-        android:id="@+id/lggithub2"
+        android:id="@+id/lggithub"
         android:layout_width="41dp"
         android:layout_height="37dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/ic_baseline_code_24"
         android:text="@string/empty"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/gittitle2"
+        android:id="@+id/gittitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:text="Git Hub Repository"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/lggithub2"
-        app:layout_constraintStart_toStartOf="@+id/lggithub2"
-        app:layout_constraintTop_toBottomOf="@+id/lggithub2" />
+        app:layout_constraintEnd_toEndOf="@+id/lggithub"
+        app:layout_constraintStart_toStartOf="@+id/lggithub"
+        app:layout_constraintTop_toBottomOf="@+id/lggithub" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="253dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/scoreboard"
+        app:layout_constraintEnd_toEndOf="@+id/lgenterbtn"
+        app:layout_constraintStart_toStartOf="@+id/lgenterbtn"
+        app:layout_constraintTop_toBottomOf="@+id/lgenterbtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
