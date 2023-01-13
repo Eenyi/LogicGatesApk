@@ -7,15 +7,20 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
-    Button github;
+    Button github, start;
+    EditText username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        username = findViewById(R.id.lgenternametext);
         github = findViewById(R.id.lggithub);
         github.setOnClickListener(this);
+        start = findViewById(R.id.lgenterbtn);
+        start.setOnClickListener(this);
     }
 
     @Override
@@ -28,6 +33,13 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 break;
+            case R.id.lgenterbtn:
+                intent = new Intent(Home.this, Playground.class);
+                intent.putExtra("username", username.getText().toString());
+                startActivity(intent);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + v.getId());
         }
     }
 }

@@ -4,5 +4,14 @@
     <string name="empty"></string>
     <string name="start">Start</string>
     <string name="scoreboard">Score Board</string>
-
+    <string name="welcome">🦾 Welcome Camp‼️</string>
+    <string name="ter1">⚡ ON</string>
+    <string name="ter2">⭕ OFF</string>
+    <string name="and">🅰️ND</string>
+    <string name="or">🅾️R</string>
+    <string name="nand">N🅰️ND</string>
+    <string name="nor">N🅾️R</string>
+    <string name="xor">X🅾️R</string>
+    <string name="not">N⭕T</string>
+    <string name="next">NEXT ▶️</string>
 </resources>
