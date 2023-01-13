@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Logic Gates</string>
+    <string name="lgentername">Enter Your Name Below</string>
+    <string name="empty"></string>
+    <string name="start">Start</string>
+    <string name="scoreboard">Score Board</string>
+
 </resources>

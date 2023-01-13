@@ -2,8 +2,100 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lgenternameinput"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:contentDescription="@string/app_name"
     tools:context=".Home">
+
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="393dp"
+        android:layout_height="300dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/title" />
+
+    <TextView
+        android:id="@+id/lg_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/app_name"
+        android:textColor="@color/tealgreen"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
+
+    <EditText
+        android:id="@+id/lgenternametext"
+        android:layout_width="253dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/empty"
+        android:textColorLink="#009688"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lgentername"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        android:importantForAutofill="no" />
+
+    <TextView
+        android:id="@+id/lgentername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/lgentername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lg_title" />
+
+    <Button
+        android:id="@+id/lgenterbtn"
+        android:layout_width="253dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/start"
+        app:layout_constraintEnd_toEndOf="@+id/lgenternametext"
+        app:layout_constraintStart_toStartOf="@+id/lgenternametext"
+        app:layout_constraintTop_toBottomOf="@+id/lgenternametext" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="253dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/scoreboard"
+        app:layout_constraintEnd_toEndOf="@+id/lgenterbtn"
+        app:layout_constraintStart_toStartOf="@+id/lgenterbtn"
+        app:layout_constraintTop_toBottomOf="@+id/lgenterbtn" />
+
+    <Button
+        android:id="@+id/lggithub"
+        android:layout_width="41dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/ic_baseline_code_24"
+        android:text="@string/empty"
+        app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/gittitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Git Hub Repository"
+        app:layout_constraintEnd_toEndOf="@+id/lggithub"
+        app:layout_constraintStart_toStartOf="@+id/lggithub"
+        app:layout_constraintTop_toBottomOf="@+id/lggithub" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
