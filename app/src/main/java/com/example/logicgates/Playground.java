@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class Playground extends AppCompatActivity implements View.OnClickListener {
-    TextView playHeading, p_result;
+    TextView playHeading, p_result, p_count;
     Intent intent;
     ImageView p_img;
     Random rand = new Random();
@@ -28,6 +28,7 @@ public class Playground extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_playground);
         playHeading = findViewById(R.id.p_name);
         p_result = findViewById(R.id.p_result);
+        p_count = findViewById(R.id.p_count);
         intent = getIntent();
         playHeading.setText(intent.getStringExtra("username"));
         p_img = findViewById(R.id.p_img);
@@ -46,7 +47,7 @@ public class Playground extends AppCompatActivity implements View.OnClickListene
                     setGateImageRandomly();
                     setOptionDisabled(true);
                     p_result.setText("");
-                    turnCount--;
+                    p_count.setText("Remaining Turns : " + --turnCount);
                 }
                 else {
                     //intent call of score & share button
