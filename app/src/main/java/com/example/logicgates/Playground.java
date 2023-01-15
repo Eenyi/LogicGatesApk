@@ -3,8 +3,10 @@ package com.example.logicgates;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ public class Playground extends AppCompatActivity implements View.OnClickListene
     ImageView p_img;
     Random rand = new Random();
     int [] arrDrawableGateImages = {R.drawable.and, R.drawable.or, R.drawable.nand, R.drawable.nor, R.drawable.not, R.drawable.xor};
+    Button p_next;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,15 +27,23 @@ public class Playground extends AppCompatActivity implements View.OnClickListene
         intent = getIntent();
         playHeading.setText(intent.getStringExtra("username"));
         p_img = findViewById(R.id.p_img);
-        setGateImageOnCreate();
+        setGateImageRandomly();
+        p_next =findViewById(R.id.p_next);
+        p_next.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.p_next:
+                setGateImageRandomly();
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + v.getId());
+        }
     }
 
-    protected void setGateImageOnCreate() {
+    protected void setGateImageRandomly() {
         int selectedGateIndex = rand.nextInt(6);
         p_img.setImageResource(arrDrawableGateImages[selectedGateIndex]);
     }
