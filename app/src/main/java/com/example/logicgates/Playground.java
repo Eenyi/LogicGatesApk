@@ -14,7 +14,7 @@ public class Playground extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playground);
-        playHeading = findViewById(R.id.playheading);
+        playHeading = findViewById(R.id.p_name);
         intent = getIntent();
         playHeading.setText(intent.getStringExtra("username"));
     }

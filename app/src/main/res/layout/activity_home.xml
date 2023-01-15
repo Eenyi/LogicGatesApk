@@ -81,22 +81,22 @@
         android:id="@+id/lggithub"
         android:layout_width="41dp"
         android:layout_height="37dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/ic_baseline_code_24"
         android:text="@string/empty"
+        app:layout_constraintBottom_toTopOf="@+id/gittitle"
         app:layout_constraintEnd_toEndOf="@+id/button3"
         app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/gittitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginBottom="30dp"
         android:text="Git Hub Repository"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/lggithub"
-        app:layout_constraintStart_toStartOf="@+id/lggithub"
-        app:layout_constraintTop_toBottomOf="@+id/lggithub" />
+        app:layout_constraintStart_toStartOf="@+id/lggithub" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

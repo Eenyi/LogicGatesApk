@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Playground">
+
+    <TextView
+        android:id="@+id/p_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/welcome"
+        android:textColor="@color/tealgreen"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/p_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Name"
+        android:textColor="@color/navyblue"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="@+id/p_welcome"
+        app:layout_constraintTop_toBottomOf="@+id/p_welcome" />
+
+    <TextView
+        android:id="@+id/p_f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="@string/failure"
+        android:textColor="@color/tealgreen"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/p_s"
+        app:layout_constraintTop_toBottomOf="@+id/p_s" />
+
+    <TextView
+        android:id="@+id/p_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="@string/count"
+        android:textColor="@color/tealgreen"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/p_f"
+        app:layout_constraintTop_toBottomOf="@+id/p_f" />
+
+    <TextView
+        android:id="@+id/p_s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="monospace"
+        android:text="@string/success"
+        android:textColor="@color/tealgreen"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/p_bulb"
+        android:layout_width="186dp"
+        android:layout_height="171dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
+        android:contentDescription="@string/app_name"
+        android:rotation="-90"
+        app:layout_constraintStart_toStartOf="@+id/p_name"
+        app:layout_constraintTop_toBottomOf="@+id/p_name"
+        app:srcCompat="@drawable/off"
+        tools:ignore="ImageContrastCheck" />
+
+    <Button
+        android:id="@+id/p_ter2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ter2"
+        app:layout_constraintEnd_toEndOf="@+id/p_bulb"
+        app:layout_constraintTop_toTopOf="@+id/p_ter1" />
+
+    <Button
+        android:id="@+id/p_ter1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/ter1"
+        app:layout_constraintStart_toStartOf="@+id/p_bulb"
+        app:layout_constraintTop_toBottomOf="@+id/p_bulb" />
+
+    <ImageView
+        android:id="@+id/p_img"
+        android:layout_width="267dp"
+        android:layout_height="216dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toStartOf="@+id/p_and"
+        app:layout_constraintStart_toEndOf="@+id/p_bulb"
+        app:layout_constraintTop_toTopOf="@+id/p_bulb"
+        app:srcCompat="@drawable/and" />
+
+    <TextView
+        android:id="@+id/p_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        app:layout_constraintEnd_toEndOf="@+id/p_img"
+        app:layout_constraintStart_toStartOf="@+id/p_img"
+        app:layout_constraintTop_toBottomOf="@+id/p_img" />
+
+    <Button
+        android:id="@+id/p_and"
+        android:layout_width="88dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/and"
+        app:layout_constraintBottom_toTopOf="@+id/p_nor"
+        app:layout_constraintStart_toStartOf="@+id/p_nand"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/p_nand"
+        android:layout_width="88dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/nand"
+        app:layout_constraintBottom_toTopOf="@+id/p_and"
+        app:layout_constraintEnd_toStartOf="@+id/p_or" />
+
+    <Button
+        android:id="@+id/p_or"
+        android:layout_width="88dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/or"
+        app:layout_constraintBottom_toTopOf="@+id/p_and"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/p_nor"
+        android:layout_width="88dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/nor"
+        app:layout_constraintBottom_toTopOf="@+id/p_next"
+        app:layout_constraintStart_toStartOf="@+id/p_and"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/p_not"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:text="@string/not"
+        app:layout_constraintBottom_toBottomOf="@+id/p_nor"
+        app:layout_constraintEnd_toEndOf="@+id/p_xor" />
+
+    <Button
+        android:id="@+id/p_next"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/color_orange"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/p_not"
+        app:layout_constraintStart_toStartOf="@+id/p_nor" />
+
+    <Button
+        android:id="@+id/p_xor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/xor"
+        app:layout_constraintBottom_toBottomOf="@+id/p_and"
+        app:layout_constraintEnd_toEndOf="@+id/p_or" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

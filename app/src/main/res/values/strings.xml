@@ -14,4 +14,7 @@
     <string name="xor">X🅾️R</string>
     <string name="not">N⭕T</string>
     <string name="next">NEXT ▶️</string>
+    <string name="success">Success : 0</string>
+    <string name="failure">Failure : 0</string>
+    <string name="count">Remaining Turns : 10</string>
 </resources>
