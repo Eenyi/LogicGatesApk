@@ -13,14 +13,14 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class Playground extends AppCompatActivity implements View.OnClickListener {
-    TextView playHeading, p_result, p_count;
+    TextView playHeading, p_result, p_count, p_s, p_f;
     Intent intent;
     ImageView p_img;
     Random rand = new Random();
     int [] arrDrawableGateImages = new int[]{R.drawable.and, R.drawable.or, R.drawable.nand, R.drawable.nor, R.drawable.not, R.drawable.xor};
     String [] gatesNames = new String[] {"AND", "OR", "NAND", "NOR", "NOT", "XOR"};
     Button p_next, p_and, p_or, p_nand, p_nor, p_xor, p_not;
-    int turnCount, currentImgID;
+    int turnCount, currentImgID, success, failure;
     String currentImgName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +29,16 @@ public class Playground extends AppCompatActivity implements View.OnClickListene
         playHeading = findViewById(R.id.p_name);
         p_result = findViewById(R.id.p_result);
         p_count = findViewById(R.id.p_count);
+        p_s = findViewById(R.id.p_s);
+        p_f = findViewById(R.id.p_f);
         intent = getIntent();
         playHeading.setText(intent.getStringExtra("username"));
         p_img = findViewById(R.id.p_img);
         setGateImageRandomly();
         setButtonListeners();
         turnCount = 10;
+        failure = 0;
+        success = 0;
     }
 
     @Override
@@ -129,11 +133,18 @@ public class Playground extends AppCompatActivity implements View.OnClickListene
         p_not =findViewById(R.id.p_not);
         p_not.setOnClickListener(this);
     }
+
     protected boolean checkGuess(int optionID) {
         setOptionDisabled(false);
         int gateImgID = getIndex(arrDrawableGateImages, currentImgID);
-        if (optionID == gateImgID) { return true;}
-        else {return false;}
+        if (optionID == gateImgID) {
+            p_s.setText("Success : "+ ++success);
+            return true;
+        }
+        else {
+            p_f.setText("Failure : "+ ++failure);
+            return false;
+        }
     }
 
     protected int getIndex(int arr[], int key) {
