@@ -25,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Name"
         android:textColor="@color/navyblue"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="@+id/p_welcome"
@@ -103,14 +102,12 @@
         android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toStartOf="@+id/p_and"
         app:layout_constraintStart_toEndOf="@+id/p_bulb"
-        app:layout_constraintTop_toTopOf="@+id/p_bulb"
-        app:srcCompat="@drawable/and" />
+        app:layout_constraintTop_toTopOf="@+id/p_bulb" />
 
     <TextView
         android:id="@+id/p_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Result"
         app:layout_constraintEnd_toEndOf="@+id/p_img"
         app:layout_constraintStart_toStartOf="@+id/p_img"
         app:layout_constraintTop_toBottomOf="@+id/p_img" />
