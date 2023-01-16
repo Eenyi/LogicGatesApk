@@ -23,7 +23,7 @@ public class Playground extends AppCompatActivity implements View.OnClickListene
     String [] gatesNames = new String[] {"AND", "OR", "NAND", "NOR", "NOT", "XOR"};
     Button p_next, p_and, p_or, p_nand, p_nor, p_xor, p_not, p_ter1, p_ter2;
     int turnCount, currentImgID, success, failure;
-    String currentImgName;
+    String currentImgName, player;
     boolean ter1, ter2;
     TruthTable [] andTruthTable = {new TruthTable("⭕ OFF", "⭕ OFF", R.drawable.off, R.drawable.and),
             new TruthTable("⚡ ON", "⚡ ON", R.drawable.on, R.drawable.and),
@@ -60,11 +60,12 @@ public class Playground extends AppCompatActivity implements View.OnClickListene
         p_bulb = findViewById(R.id.p_bulb);
         intent = getIntent();
         playHeading.setText(intent.getStringExtra("username"));
+        player = intent.getStringExtra("username");
         p_img = findViewById(R.id.p_img);
         setGateImageRandomly();
         setButtonListeners();
         setP_bulb();
-        turnCount = 10;
+        turnCount = 9;
         failure = 0;
         success = 0;
         ter1 = false;
@@ -81,6 +82,7 @@ public class Playground extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         String yes = "Yes, this is "+currentImgName+" gate!",
                 no = "No, this is "+currentImgName+" gate!";
+        Intent intent1;
         switch (v.getId()) {
             case R.id.p_next:
                 if (turnCount != 0) {
@@ -92,6 +94,10 @@ public class Playground extends AppCompatActivity implements View.OnClickListene
                 }
                 else {
                     //intent call of score & share button
+                    intent1 = new Intent(Playground.this, Score.class);
+                    intent1.putExtra("player", player);
+                    intent1.putExtra("score", Integer.toString(success));
+                    startActivity(intent1);
                 }
                 break;
             case R.id.p_and:

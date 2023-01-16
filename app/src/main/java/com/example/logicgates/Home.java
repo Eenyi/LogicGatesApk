@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
-    Button github, start;
+    Button github, start, lgscoreboardbtn;
     EditText username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         github.setOnClickListener(this);
         start = findViewById(R.id.lgenterbtn);
         start.setOnClickListener(this);
+        lgscoreboardbtn = findViewById(R.id.lgscoreboardbtn);
+        lgscoreboardbtn.setOnClickListener(this);
     }
 
     @Override
@@ -36,6 +38,10 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             case R.id.lgenterbtn:
                 intent = new Intent(Home.this, Playground.class);
                 intent.putExtra("username", username.getText().toString());
+                startActivity(intent);
+                break;
+            case R.id.lgscoreboardbtn:
+                intent = new Intent(Home.this, ScoreBoard.class);
                 startActivity(intent);
                 break;
             default:
